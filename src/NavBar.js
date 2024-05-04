@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 const NavBar =() => {
     return (
-        <div style={{color:'blue'}}>
+        <div >
         <h1>
         <nav>
-            <Link to="/">Home</Link>
-            <Link to="/chips">Chips</Link>
+           <Link to="/chips">Chips</Link>
+           <br></br>
             <Link to="/soda">Sodas</Link>
+            <br></br>
             <Link to="/sardines">Sardines</Link>
         </nav>
         </h1>

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import Chips from "./Chips";
 import Soda from "./Soda";
 import Sardines from "./Sardines";
@@ -8,14 +8,17 @@ import Home from "./Home"
 
 
 const VendingMachine = () =>{
-
+    const NavBarWithRoute = () =>{
+        const location = useLocation()
+        const showNavBar = location.pathname === '/'
+        return showNavBar ? <NavBar></NavBar> : null
+       
+    }
     return (
         <div >
-            
             <BrowserRouter>
-            <NavBar></NavBar>
+            <NavBarWithRoute></NavBarWithRoute>
             <Routes>
-            
                 <Route  path="/" element={<Home />}>Home</Route>
                 <Route  path="/chips" element={<Chips />} >Chips</Route>
                 <Route path="/soda" element={<Soda />}>Chips</Route>
@@ -26,4 +29,5 @@ const VendingMachine = () =>{
         </div>
     )
 }
+
 export default VendingMachine
